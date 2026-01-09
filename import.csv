@@ -1,0 +1,17 @@
+Action,Path,Target
+L,fish/conf.d
+
+L,hypr/hypridle.conf
+L,hypr/hyprland.cong
+L,hypr/hyprlock.conf
+L,hypr/conf.d
+C-Soft,hypr/monitors.conf
+
+L,kitty
+
+L,waybar
+
+L,nvim
+
+L,starship.toml
+
