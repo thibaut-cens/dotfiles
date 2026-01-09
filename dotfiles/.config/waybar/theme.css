@@ -1,0 +1,24 @@
+@define-color background @theme_base_color;
+@define-color foreground @theme_text_color;
+@define-color wb_borders @borders;
+
+@define-color urgent #e67e80;
+@define-color urgent_fg @background;
+
+@define-color color1 #dbbc7f;
+@define-color color1_fg @background;
+
+@define-color color2 #a7c080;
+@define-color color2_fg @background;
+
+@define-color color3 #7fbbb3;
+@define-color color3_fg @background;
+
+@define-color ws_bg @background;
+@define-color ws_borders @borders;
+
+@define-color ws_inactive @theme_bg_color;
+@define-color ws_inactive_fg @theme_fg_color;
+
+@define-color ws_active @theme_selected_bg_color;
+@define-color ws_active_fg @theme_selected_fg_color;

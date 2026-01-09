@@ -1,0 +1,159 @@
+{
+  "layer": "top",
+  "height": 20,
+  "modules-left": [
+    "cpu",
+    "memory",
+    "network",
+    "mpris",
+    "tray"
+  ],
+  "modules-center": [
+    "hyprland/workspaces"
+  ],
+  "reload_style_on_change": true,
+  "include": [
+    "~/.local/share/waybar/modules/custom-hyde-menu.jsonc",
+    "~/.local/share/waybar/modules/custom-powermenu.jsonc"
+  ],
+  "modules-right": [
+    "custom/mullvad",
+    // "custom/updates",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "custom/hyde-menu",
+  ],
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}% {format_source}",
+    "format-muted": "{icon} {format_source}",
+    "format-bluetooth": " {icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": "<s> {icon}</s>  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ],
+      "default-muted": " ",
+      "headset": "",
+      "hdmi": "󰡁",
+    },
+  },
+  "custom/mullvad": {
+    "exec": "pwsh -NoProfile $XDG_CONFIG_HOME/waybar/bin/mullvad.ps1",
+    "on-click": "pwsh -NoProfile $XDG_CONFIG_HOME/waybar/bin/mullvad.ps1 toggle; sleep 1; pkill -RTMIN+9 waybar",
+    "on-click-right": "pkill -RTMIN+9 waybar",
+    "interval": 30,
+    "return-type": "json",
+    "format": "{icon} {text}",
+    "format-icons": {
+      "connected": "󰌆",
+      "disconnected": "󰌊",
+    },
+    "signal": 9,
+    "tooltip": true,
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-wifi": " {signalStrength}% [{ipaddr}/{cidr}]",
+    "tooltip-format-ethernet": "󰈀 {ifname}",
+    "tooltip-format-disconnected": "Disconnected",
+  },
+  "backlight": {
+    "tooltip": false,
+    "format": " {}%",
+    "interval": 1,
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5",
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": "󱐋 {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10,
+  },
+  "clock": {
+    "tooltip": false,
+    "format": "󰥔 {:%R   %x}",
+  },
+  "cpu": {
+    "interval": 5,
+    "format": " {}%",
+    "max-length": 10,
+  },
+  "memory": {
+    "interval": 5,
+    "format": "  {}%",
+    "max-length": 10,
+  },
+  "mpris": {
+    "format": "{player_icon} {status_icon} {dynamic:.22}",
+    "player-icons": {
+      "default": "",
+      "firefox": "",
+      "spotify": "",
+    },
+    "status-icons": {
+      "playing": "⏸",
+      "paused": "▶",
+    },
+  },
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "wofi -show drun",
+    "on-click-right": "killall wofi",
+  },
+  "custom/power": {
+    "format": " ",
+    "on-click": "/home/thor/.local/bin/wofi-power-menu -d lock-screen -d hibernate",
+  },
+  // "custom/updates": {
+  //   "format": "{} Update(s)",
+  //   "exec": "checkupdates | wc -l",
+  //   "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+  //   "interval": 300,
+  //   "on-click": "kitty -e yay -Syu && notify-send 'The system has been updated' "
+  // },
+  "hyprland/workspaces": {
+    "format": "{icon}:{windows}",
+    "format-window-separator": "",
+    "workspace-taskbar": {
+      "enable": true,
+      "update-active-window": true,
+      "format": " {icon}",
+      "icon-size": 18,
+    },
+  },
+}

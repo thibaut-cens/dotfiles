@@ -1,0 +1,14 @@
+{
+	"name": "My Dotfiles DEV",
+	"id": "com.thibautcens.mydots.dev",
+	"description": "",
+	"version":"0.1",
+	"author": "Thibaut CENS",
+	"homepage": "",
+	"dependencies": "",
+	"source": "/home/thor/Projects/mydots",
+	"subfolder": "dotfiles",
+	"setupscript":"setup.sh",
+	"restore":[],
+	"settings":[]
+}

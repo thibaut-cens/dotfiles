@@ -1,0 +1,163 @@
+@import "theme.css";
+
+* {
+  font-family: 'MonaspiceAr NFP';
+  font-size: 14px;
+}
+
+window.eDP-1 * {
+  font-size: 14px;
+}
+
+window#waybar.top button,
+window#waybar.bottom button {
+  margin: 0 .4rem;
+}
+
+.module {
+  color: @foreground;
+}
+
+window#waybar.top label.module,
+window#waybar.bottom label.module,
+.module {
+  margin: 4px 4px;
+  padding: 0 1rem;
+  border-radius: 1000px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#window {
+  color: transparent;
+  background: transparent;
+}
+
+/*======================================== Right ========================================*/
+#custom-hyde-menu {
+  background: @background;
+  color: @foreground;
+  border: 2px solid @wb_borders;
+}
+
+#clock {
+  background: @background;
+  color: @foreground;
+  border: 2px solid @wb_borders;
+}
+
+#battery {
+  background: @color1;
+  color: @color1_fg;
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background: @urgent;
+    color: @urgent_fg;
+  }
+}
+
+#pulseaudio {
+  background: @color2;
+  color: @color2_fg;
+}
+
+
+#backlight {
+  background: @color3;
+  color: @color3_fg;
+}
+
+/*======================================== Left ========================================*/
+
+#cpu {
+  background: @color1;
+  color: @color1_fg;
+}
+
+#memory {
+  background: @color2;
+  color: @color2_fg;
+}
+
+#network {
+  background: @color3;
+  color: @color3_fg;
+}
+
+#mpris {
+  background: @background;
+  color: @foreground;
+  border: 2px solid @background;
+}
+
+#mpris.firefox {
+  border-color: #E66000;
+}
+#mpris.spotify {
+  border-color: #1ED760;
+}
+#mpris.deezer {
+  border-color: #673ab7;
+}
+
+
+#tray {
+  background: alpha(@background, 0.6);
+  color: @foreground;
+}
+
+#custom-mullvad.connected {
+  background: @purple;
+}
+
+#custom-mullvad.disconnected {
+  color: @grey0;
+}
+
+/*======================================== Workspaces ========================================*/
+
+#workspaces {
+  padding: 0;
+  background: 0;
+}
+
+#workspaces button {
+  background: @ws_inactive;
+  color: @ws_inactive_fg;
+  border-radius: 1000px;
+  padding: 0 1rem;
+  border: 2px solid @ws_borders;
+}
+
+#workspaces button.active {
+  background: @ws_active;
+  border-color: @ws_active;
+  color: @ws_active_fg;
+  padding: 0 2rem;
+}
+
+#workspaces button.urgent {
+  animation-name: blink_outline;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink_outline {
+  to {
+    border-color: @urgent;
+  }
+}
