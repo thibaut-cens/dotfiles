@@ -2,7 +2,7 @@ Action,Path,Target
 L,fish/conf.d
 
 L,hypr/hypridle.conf
-L,hypr/hyprland.cong
+L,hypr/hyprland.conf
 L,hypr/hyprlock.conf
 L,hypr/conf.d
 C-Soft,hypr/monitors.conf

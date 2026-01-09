@@ -9,7 +9,7 @@ import csv
 config_root_name = "config"
 
 def backupisePath(path : Path) -> Path:
-    return path.with_suffix("backup")
+    return path.with_suffix(".backup")
 
 def treatRow(config_root : Path, row : dict[str, str]):
     src_str = row["Path"]
@@ -18,7 +18,7 @@ def treatRow(config_root : Path, row : dict[str, str]):
     
     target = row.get("Target", None)
     if (target is None or target == ""):
-        target = Path(os.getenv("XDG_CONFIG_HOME")).joinpath(source.relative_to(config_root)).resolve()
+        target = Path(os.getenv("XDG_CONFIG_HOME")).joinpath(source.relative_to(config_root))
         logger.debug(f"Target field is undefined, infering target to: {target}")
     else:
         target = Path(target).absolute()
@@ -68,9 +68,8 @@ def handleCopy(source : Path, target : Path, mode : str = "Soft") :
         
 @click.command()
 @click.argument("csv_file", type=click.Path(exists=True, file_okay=True,dir_okay=False, path_type=Path))
-@click.option("-v", "--verbose", is_flag=True)
 @click.option("-c", "--config_root", type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path), default=Path(__file__).parent.joinpath("config"))
-def main(csv_file : Path, verbose : bool, config_root : Path):
+def main(csv_file : Path, config_root : Path):
     logger.info(f"Run import with csv file: {csv}")
     with csv_file.open() as file:
         reader = csv.DictReader(file)
