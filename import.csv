@@ -4,7 +4,9 @@ L,fish/conf.d
 L,hypr/hypridle.conf
 L,hypr/hyprland.conf
 L,hypr/hyprlock.conf
+L,hypr/hyprpaper.conf
 L,hypr/conf.d
+L,hypr/themes
 C-Soft,hypr/monitors.conf
 
 L,kitty
@@ -15,3 +17,6 @@ L,nvim
 
 L,starship.toml
 
+L,wlogout
+
+L,rofi

@@ -1,0 +1,8 @@
+/* ---- Load colors ---- */
+@theme "~/.config/rofi/themes/everforest.rasi"
+
+* { 
+  border-width: 2px;
+  border-radius: 10px;
+  current-image: url("~/Pictures/Wallpapers/Superbloom.blurred.jpg", width);
+}

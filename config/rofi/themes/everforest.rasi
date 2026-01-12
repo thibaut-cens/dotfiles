@@ -1,0 +1,55 @@
+* {
+    background: rgba(51,60,67,0.9);
+    foreground: #d3c6aa;
+
+    primary: #DBBC7F;
+    primary-fixed: red;
+    primary-fixed-dim: red;
+    on-primary: @background;
+    on-primary-fixed: black;
+    on-primary-fixed-variant: black;
+    primary-container: red;
+    on-primary-container: black;
+
+    secondary: #7fbbb3;
+    secondary-fixed: red;
+    secondary-fixed-dim: red;
+    on-secondary: @background;
+    on-secondary-fixed: black;
+    on-secondary-fixed-variant: black;
+    secondary-container: red;
+    on-secondary-container: black;
+
+    tertiary: #525e7d;
+    tertiary-fixed: red;
+    tertiary-fixed-dim: red;
+    on-tertiary: @background;
+    on-tertiary-fixed: black;
+    on-tertiary-fixed-variant: black;
+    tertiary-container: red;
+    on-tertiary-container: black;
+
+    error: #e67e80;
+    on-error: @background;
+    error-container: red;
+    on-error-container: black;
+
+    surface: #3a464c;
+    on-surface: @foreground;
+    on-surface-variant: red;
+
+    outline: red;
+    outline-variant: red;
+    shadow: red;
+    scrim: red;
+    inverse-surface: red;
+    inverse-on-surface: red;
+    inverse-primary: red;
+    surface-dim: red;
+    surface-bright: red;
+    surface-container-lowest: red;
+    surface-container-low: red;
+    surface-container: red;
+    surface-container-high: red;
+    surface-container-highest: red;
+}
