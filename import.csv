@@ -7,6 +7,7 @@ L,hypr/hyprlock.conf
 L,hypr/hyprpaper.conf
 L,hypr/conf.d
 L,hypr/themes
+L,hypr/scripts
 C-Soft,hypr/monitors.conf
 
 L,kitty
