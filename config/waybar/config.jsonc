@@ -106,7 +106,8 @@
   },
   "clock": {
     "tooltip": false,
-    "format": "󰥔 {:%R   %x}",
+    "format": " {:%c}",
+    "interval": 1
   },
   "cpu": {
     "interval": 5,
