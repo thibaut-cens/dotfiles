@@ -14,6 +14,9 @@
 @define-color color3 #7fbbb3;
 @define-color color3_fg @background;
 
+@define-color color4 #D699B6;
+@define-color color4_fg @background;
+
 @define-color ws_bg @background;
 @define-color ws_borders @borders;
 

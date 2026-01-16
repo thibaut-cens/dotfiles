@@ -36,7 +36,7 @@ window#waybar {
 }
 
 /*======================================== Right ========================================*/
-#custom-hyde-menu {
+#custom-updates {
   background: @background;
   color: @foreground;
   border: 2px solid @wb_borders;
@@ -79,6 +79,16 @@ window#waybar {
   color: @color3_fg;
 }
 
+#custom-mullvad.connected {
+  background: @color4;
+  color: @color4_fg;
+}
+
+#custom-mullvad {
+  background: alpha(@background, 0.5);
+  border: 2px solid alpha(@wb_borders, 0.5);
+}
+
 /*======================================== Left ========================================*/
 
 #cpu {
@@ -116,14 +126,6 @@ window#waybar {
 #tray {
   background: alpha(@background, 0.6);
   color: @foreground;
-}
-
-#custom-mullvad.connected {
-  background: @purple;
-}
-
-#custom-mullvad.disconnected {
-  color: @grey0;
 }
 
 /*======================================== Workspaces ========================================*/

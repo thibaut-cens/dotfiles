@@ -12,18 +12,13 @@
     "hyprland/workspaces"
   ],
   "reload_style_on_change": true,
-  "include": [
-    "~/.local/share/waybar/modules/custom-hyde-menu.jsonc",
-    "~/.local/share/waybar/modules/custom-powermenu.jsonc"
-  ],
   "modules-right": [
     "custom/mullvad",
-    // "custom/updates",
     "backlight",
     "pulseaudio",
     "battery",
     "clock",
-    "custom/hyde-menu",
+    "custom/updates",
   ],
   "pulseaudio": {
     "tooltip": false,
@@ -46,20 +41,6 @@
       "headset": "",
       "hdmi": "󰡁",
     },
-  },
-  "custom/mullvad": {
-    "exec": "pwsh -NoProfile $XDG_CONFIG_HOME/waybar/bin/mullvad.ps1",
-    "on-click": "pwsh -NoProfile $XDG_CONFIG_HOME/waybar/bin/mullvad.ps1 toggle; sleep 1; pkill -RTMIN+9 waybar",
-    "on-click-right": "pkill -RTMIN+9 waybar",
-    "interval": 30,
-    "return-type": "json",
-    "format": "{icon} {text}",
-    "format-icons": {
-      "connected": "󰌆",
-      "disconnected": "󰌊",
-    },
-    "signal": 9,
-    "tooltip": true,
   },
   "network": {
     "format-wifi": "  {essid}",
@@ -120,7 +101,7 @@
     "max-length": 10,
   },
   "mpris": {
-    "format": "{player_icon} {status_icon} {dynamic:.22}",
+    "format": "{player_icon} {status_icon}",
     "player-icons": {
       "default": "",
       "firefox": "",
@@ -131,22 +112,25 @@
       "paused": "▶",
     },
   },
-  "custom/launcher": {
-    "format": " ",
-    "on-click": "wofi -show drun",
-    "on-click-right": "killall wofi",
+  "custom/updates": {
+    "format": "󰏖 {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "interval": 300
   },
-  "custom/power": {
-    "format": " ",
-    "on-click": "/home/thor/.local/bin/wofi-power-menu -d lock-screen -d hibernate",
+  "custom/mullvad": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "exec": "mullvad status -j | jq --unbuffered --compact-output '{ text: .details.location.country , alt : .state, class : [.state]}'",
+    "on-click": "mullvad connect && killall -SIGUSR2 waybar",
+    "on-click-right": "mullvad disconnect && killall -SIGUSR2 waybar",
+    "format-icons": {
+      "disconnected": "",
+      "connected": "",
+      "*": "?"
+    },
+    "interval": 5
   },
-  // "custom/updates": {
-  //   "format": "{} Update(s)",
-  //   "exec": "checkupdates | wc -l",
-  //   "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-  //   "interval": 300,
-  //   "on-click": "kitty -e yay -Syu && notify-send 'The system has been updated' "
-  // },
   "hyprland/workspaces": {
     "format": "{icon}:{windows}",
     "format-window-separator": "",
