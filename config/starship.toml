@@ -4,12 +4,12 @@ format = """
 [](red)[ ](bg:prev_fg)\
 $os\
 $username\
-[](prev_bg)[](peach)[ ](bg:prev_fg)\
+[ ](bg:prev_bg)[](prev_bg)[](peach)[ ](bg:prev_fg)\
 $directory\
-[](prev_bg)[](yellow)[ ](bg:prev_fg)\
+[ ](bg:prev_bg)[](prev_bg)[](yellow)[ ](bg:prev_fg)\
 $git_branch\
 $git_status\
-[](prev_bg)[](green)[ ](bg:prev_fg)\
+[ ](bg:prev_bg)[](prev_bg)[](green)[ ](bg:prev_fg)\
 $c\
 $rust\
 $golang\
@@ -19,11 +19,11 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](prev_bg)[](sapphire)[ ](bg:prev_fg)\
+[ ](bg:prev_bg)[](prev_bg)[](sapphire)[ ](bg:prev_fg)\
 $conda\
-[](prev_bg)[](lavender)[ ](bg:prev_fg)\
+[ ](bg:prev_bg)[](prev_bg)[](lavender)[ ](bg:prev_fg)\
 $time\
-[ ](prev_bg)\
+[ ](bg:prev_bg)[ ](prev_bg)\
 $cmd_duration\
 $line_break\
 $character"""
@@ -162,8 +162,8 @@ vimcmd_visual_symbol = '[❮](bold fg:yellow)'
 show_milliseconds = true
 format = " in $duration "
 style = "bg:prev_bg"
-disabled = false
-show_notifications = true
+disabled = true
+show_notifications = false
 min_time_to_notify = 45000
 
 [palettes.catppuccin_mocha]
