@@ -24,3 +24,7 @@ alias rm='echo -e "If you want to use rm really, then use $(tput bold)gm$(tput s
 
 # ==================== Editor ====================
 alias vim="nvim"
+
+function mkcd
+    mkdir -p $argv[1]; and cd $argv[1]
+end
