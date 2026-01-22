@@ -1,0 +1,19 @@
+/*
+#  ____        __ _  
+# |  _ \ ___  / _(_) 
+# | |_) / _ \| |_| | 
+# |  _ < (_) |  _| | 
+# |_| \_\___/|_| |_| 
+# ----------------------------------------------------- 
+*/
+/* ---- Configuration ---- */
+configuration {
+    modi:                       "power-menu";
+}
+
+@import "~/.config/rofi/config.rasi"
+
+element-icon {
+  size: 2em;
+}
+
