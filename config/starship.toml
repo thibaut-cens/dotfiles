@@ -87,7 +87,7 @@ modified = "M"
 renamed = "R"
 deleted = "D"
 staged = "A"
-stashed = "$"
+stashed = '\$'
 untracked = "?"
 
 [nodejs]
