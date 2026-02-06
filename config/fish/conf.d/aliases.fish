@@ -14,13 +14,13 @@ alias gcmsg='git commit --message'
 alias gc='git commit'
 alias gco='git checkout'
 alias gb='git branch'
-alias gbr='git checkout --branch'
+alias gcb='git checkout --branch'
 alias gst='git status'
 alias glog='git log --oneline --decorate'
 
 # ==================== Gtrash ====================
-alias gm='gtrash put' # gtrash move (easy to change to rm)
-alias rm='echo -e "If you want to use rm really, then use $(tput bold)gm$(tput sgr0) instead." && false'
+alias gm='gtrash put'
+alias rm='gtrash put'
 
 # ==================== Editor ====================
 alias vim="nvim"

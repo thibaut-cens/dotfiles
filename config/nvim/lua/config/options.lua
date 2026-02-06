@@ -4,3 +4,6 @@
 
 vim.opt.number = true
 vim.opt.relativenumber = false
+
+-- provided by rust-analyzer.
+-- vim.g.lazyvim_rust_diagnostics = "bacon-ls"

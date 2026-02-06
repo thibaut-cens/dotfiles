@@ -9,3 +9,9 @@ export QT_QPA_PLATFORM=wayland
 export GDK_BACKEND=wayland
 export XCURSOR_SIZE=24
 export GTK_USE_PORTAL=1
+
+export GOPATH=$HOME/.go
+
+export GIT_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS=/usr/bin/ksshaskpass
+export SSH_ASKPASS_REQUIRE=prefer

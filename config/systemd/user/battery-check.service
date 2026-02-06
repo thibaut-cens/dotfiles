@@ -1,0 +1,12 @@
+[Unit]
+Description=Battery Check Service
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+# Use uwsm app -- to ensure the script has access to your Hyprland environment
+ExecStart=uwsm app -- /bin/bash  %E/hypr/scripts/battery_check.sh
+Slice=background.slice
+
+[Install]
+WantedBy=graphical-session.target

@@ -8,7 +8,11 @@ L,hypr/hyprpaper.conf
 L,hypr/conf.d
 L,hypr/themes
 L,hypr/scripts
+L,hypr/shaders
 C-Soft,hypr/monitors.conf
+
+L,systemd/user/battery-check.service
+L,systemd/user/battery-check.timer
 
 L,kitty
 

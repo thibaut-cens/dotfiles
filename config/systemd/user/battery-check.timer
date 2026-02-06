@@ -1,0 +1,11 @@
+[Unit]
+Description=Run Battery Monitor every 2 minutes
+Partof=wayland-session.target
+
+[Timer]
+# Start 1 minute after session starts, then every 2 minutes
+OnStartupSec=1min
+OnUnitActiveSec=2min
+
+[Install]
+WantedBy=timers.target

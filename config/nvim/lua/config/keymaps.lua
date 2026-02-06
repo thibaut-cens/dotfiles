@@ -6,7 +6,7 @@
 local map = vim.keymap.set
 
 -- Escape mapping
-map({ "i" }, "<A-;>", "<esc>", { desc = "Return to normal mode", remap = true })
+map({ "i", "x" }, "<A-;>", "<esc>", { desc = "Return to normal mode", remap = true })
 
 -- Move cursor
 -- =============================================================================
