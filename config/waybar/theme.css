@@ -3,7 +3,7 @@
 @define-color wb_borders @borders;
 
 @define-color urgent #e67e80;
-@define-color urgent_fg @background;
+@define-color urgent_fg @foreground;
 
 @define-color color1 #dbbc7f;
 @define-color color1_fg @background;

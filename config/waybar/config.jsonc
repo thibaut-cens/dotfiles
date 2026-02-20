@@ -17,6 +17,7 @@
     "backlight",
     "pulseaudio",
     "battery",
+    "idle_inhibitor",
     "clock",
     "custom/updates",
   ],
@@ -140,5 +141,12 @@
       "format": " {icon}",
       "icon-size": 18,
     },
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰾪",
+      "deactivated": ""
+    }
   },
 }

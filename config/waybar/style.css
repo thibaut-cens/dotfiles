@@ -48,6 +48,16 @@ window#waybar {
   border: 2px solid @wb_borders;
 }
 
+#idle_inhibitor {
+  background: alpha(@background, 0.2);
+  font-size: 16;
+}
+
+#idle_inhibitor.activated {
+  background: alpha(@background, 0.5);
+  font-size: 20;
+}
+
 #battery {
   background: @color1;
   color: @color1_fg;

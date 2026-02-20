@@ -11,6 +11,8 @@ L,hypr/scripts
 L,hypr/shaders
 C-Soft,hypr/monitors.conf
 
+L,swappy/
+
 L,systemd/user/battery-check.service
 L,systemd/user/battery-check.timer
 
@@ -20,6 +22,7 @@ L,waybar
 
 L,nvim/lua
 L,nvim/init.lua
+L,nvim/ftdetect
 
 L,starship.toml
 
