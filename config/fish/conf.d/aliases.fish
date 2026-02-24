@@ -17,6 +17,7 @@ alias gb='git branch'
 alias gcb='git checkout --branch'
 alias gst='git status'
 alias glog='git log --oneline --decorate'
+alias gd='git diff'
 
 # ==================== Gtrash ====================
 alias gm='gtrash put'
