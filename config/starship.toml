@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$shell\
 [](red)[ ](bg:prev_fg)\
 $os\
 $username\
@@ -18,8 +19,6 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[ ](bg:prev_bg)[](prev_bg)[](sapphire)[ ](bg:prev_fg)\
-$conda\
 [ ](bg:prev_bg)[](prev_bg)[](lavender)[ ](bg:prev_fg)\
 $time\
 [ ](bg:prev_bg)[ ](prev_bg)\
@@ -28,6 +27,17 @@ $line_break\
 $character"""
 
 palette = 'catppuccin_mocha'
+
+[shell]
+disabled = false
+style = "bg:prev_fg fg:text"
+format = '$indicator'
+fish_indicator = ''
+powershell_indicator = '[](fg:surface0)[ powershell ]($style)[](fg:prev_bg)'
+pwsh_indicator = '[](fg:surface0)[ pscore ]($style)[](fg:prev_bg)'
+bash_indicator = '[](fg:surface0)[ bash ]($style)[](fg:prev_bg)'
+
+
 
 [os]
 disabled = false
