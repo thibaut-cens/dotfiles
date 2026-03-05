@@ -1,1 +1,3 @@
-Invoke-Expression (& { (zoxide init --cmd cd powershell | Out-String) })
+Invoke-Expression (& { (zoxide init --cmd z powershell | Out-String) })
+
+Set-Alias -Name cd -Value z -Force -Option AllScope
