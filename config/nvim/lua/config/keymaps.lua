@@ -18,6 +18,12 @@ map({ "i", "n", "v" }, "<A-l>", "<Right>", { desc = "Move cursor right in insert
 map({ "i", "n", "v" }, "<S-A-l>", "<S-Right>", { remap = true })
 map({ "i", "n", "v" }, "<S-A-h>", "<S-Left>", { remap = true })
 ----------
+map({ "v", "x" }, "<S-j>", "}", { desc = "Move to the end of current paragraph" })
+map({ "v", "x" }, "<S-k>", "{", { desc = "Move to the beggining of previous paragraph" })
+----------
+map({ "v", "x" }, "<S-h>", "W", { remap = true })
+map({ "v", "x" }, "<S-l>", "B", { remap = true })
+----------
 vim.keymap.set({ "n", "x", "o" }, "<A-o>", function()
 	require("flash").treesitter({
 		actions = {
