@@ -1,30 +1,32 @@
 # ==================== Eza ====================
-alias l='eza -lh --icons=auto'
-alias ls='eza --icons=auto'
-alias ll='eza -lha --icons=auto --sort=name --group-directories-first'
-alias ld='eza -lhD --icons=auto'
-alias lt='eza --icons=auto --tree'
+alias eza='command eza --icons=auto'
+alias ls='eza'
+
+abbr --add l --position command -- ls -lh
+abbr --add ll --position command -- ls -lha
+abbr --add ld --position command -- ls -lhd
+abbr --add lt --position command -- eza -lh --tree
 
 # ==================== Git ====================
-alias g='git'
-alias ga='git add'
-alias gps='git push'
-alias gpl='git pull'
-alias gcmsg='git commit --message'
-alias gc='git commit'
-alias gco='git checkout'
-alias gb='git branch'
-alias gcb='git checkout --branch'
-alias gst='git status'
-alias glog='git log --oneline --decorate'
-alias gd='git diff'
+abbr --add --position command g -- git
+abbr --add --position command ga -- git add
+abbr --add --position command gps -- git push
+abbr --add --position command gpl -- git pull
+abbr --add --position command gcmsg -- git commit --message
+abbr --add --position command gc -- git commit
+abbr --add --position command gco -- git checkout
+abbr --add --position command gb -- git branch
+abbr --add --position command gcb -- git checkout --branch
+abbr --add --position command gst -- git status
+abbr --add --position command glog -- git log --oneline --decorate
+abbr --add --position command gd -- git diff
 
 # ==================== Gtrash ====================
 alias gm='gtrash put'
-alias rm='gtrash put'
+abbr --add --position command rm -- gm
 
 # ==================== Editor ====================
-alias vim="nvim"
+abbr --add --position command vim -- nvim
 
 function mkcd
     mkdir -p $argv[1]; and cd $argv[1]

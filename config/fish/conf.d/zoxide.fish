@@ -1,1 +1,3 @@
-zoxide init --cmd cd fish | source
+zoxide init --cmd z fish | source
+
+alias cd='z'
