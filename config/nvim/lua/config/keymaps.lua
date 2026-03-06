@@ -5,25 +5,31 @@
 -- use `vim.keymap.set` instead
 local map = vim.keymap.set
 
--- Escape mapping
-map({ "i", "x" }, "<A-;>", "<esc>", { desc = "Return to normal mode", remap = true })
+-- ╭─────────────────────────────────────────────────────────────────────────────╮
+-- │ Move Cursor                                                                 │
+-- ╰─────────────────────────────────────────────────────────────────────────────╯
 
--- Move cursor
--- =============================================================================
-map({ "i", "n", "v" }, "<A-h>", "<Left>", { desc = "Move cursor left in insert mode", remap = true })
-map({ "i", "n", "v" }, "<A-j>", "<Down>", { desc = "Move cursor down in insert mode", remap = true })
-map({ "i", "n", "v" }, "<A-k>", "<Up>", { desc = "Move cursor up in insert mode", remap = true })
-map({ "i", "n", "v" }, "<A-l>", "<Right>", { desc = "Move cursor right in insert mode", remap = true })
-----------
-map({ "i", "n", "v" }, "<S-A-l>", "<S-Right>", { remap = true })
-map({ "i", "n", "v" }, "<S-A-h>", "<S-Left>", { remap = true })
-----------
-map({ "v", "x" }, "<S-j>", "}", { desc = "Move to the end of current paragraph" })
-map({ "v", "x" }, "<S-k>", "{", { desc = "Move to the beggining of previous paragraph" })
-----------
+---------- Remap A+<key> to arrow keys ----------
+map({ "n", "i", "v", "c" }, "<A-h>", "<Left>", { desc = "Move cursor left in insert mode", remap = true })
+map({ "n", "i", "v", "c" }, "<A-j>", "<Down>", { desc = "Move cursor down in insert mode", remap = true })
+map({ "n", "i", "v", "c" }, "<A-k>", "<Up>", { desc = "Move cursor up in insert mode", remap = true })
+map({ "n", "i", "v", "c" }, "<A-l>", "<Right>", { desc = "Move cursor right in insert mode", remap = true })
+
+---------- Remap S+A+<key> to arrow keys ----------
+map({ "n", "i", "v" }, "<S-A-l>", "<S-Right>", { remap = true })
+map({ "n", "i", "v" }, "<S-A-h>", "<S-Left>", { remap = true })
+map({ "n", "i", "v" }, "<S-A-k>", "<S-Up>", { remap = true })
+map({ "n", "i", "v" }, "<S-A-j>", "<S-Down>", { remap = true })
+
+---------- Move cursor by paragraph ----------
+map({ "n", "i", "v" }, "<S-Up>", "{", { remap = true })
+map({ "n", "i", "v" }, "<S-Down>", "}", { remap = true })
+
+---------- Move cursor by word ----------
 map({ "v", "x" }, "<S-h>", "W", { remap = true })
 map({ "v", "x" }, "<S-l>", "B", { remap = true })
-----------
+
+---------- Semantic selection ----------
 vim.keymap.set({ "n", "x", "o" }, "<A-o>", function()
 	require("flash").treesitter({
 		actions = {
@@ -33,17 +39,32 @@ vim.keymap.set({ "n", "x", "o" }, "<A-o>", function()
 	})
 end, { desc = "Treesitter incremental selection" })
 
--- Move Lines
--- =============================================================================
-map("n", "<S-A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
-map("n", "<S-A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
-----------
-map("i", "<S-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
-map("i", "<S-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
-----------
-map("v", "<S-A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
-map("v", "<S-A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+-- ╭─────────────────────────────────────────────────────────────────────────────╮
+-- │ Move Lines                                                                  │
+-- ╰─────────────────────────────────────────────────────────────────────────────╯
 
+---------- Move selected lines up and down ----------
+map("v", "<S-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
+map("v", "<S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+-- ╭─────────────────────────────────────────────────────────────────────────────╮
+-- │ Utils                                                                       │
+-- ╰─────────────────────────────────────────────────────────────────────────────╯
+
+---------- Open Snacks terminal ----------
 map({ "n", "i", "v" }, "<C-/>", function()
-	Snacks.terminal.toggle()
+	win, created = Snacks.terminal.get()
+	local is_focused = win and win:valid() and win == vim.api.nvim_get_current_win()
+
+	if created then
+		return
+	elseif is_focused then
+		win:hide()
+	else
+		win:show()
+		win:focus()
+	end
 end)
+
+---------- Map mode escape ----------
+map({ "i", "x" }, "<A-;>", "<esc>", { desc = "Return to normal mode", remap = true })
