@@ -28,6 +28,10 @@ abbr --add --position command rm -- gm
 # ==================== Editor ====================
 abbr --add --position command vim -- nvim
 
+# ==================== Rsync ====================
+alias rsync='command rsync --info=progress2'
+alias cp="rsync -avh"
+
 function mkcd
     mkdir -p $argv[1]; and cd $argv[1]
 end
