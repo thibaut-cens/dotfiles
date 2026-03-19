@@ -9,6 +9,7 @@ local StatusClass = require("utils.status").Status
 --- @class Status Status
 local Status = StatusClass.new()
 
+--- @param item snacks.picker.Item
 local function path_move_callback(item)
 	if item.dir then
 		print(string.format("Change CWD for '%s'", item._path))
@@ -105,6 +106,19 @@ return {
 							path_move_callback(item)
 						end,
 
+						explorer_pick_buffer_and_open = function(picker, item)
+							local snacks = require("snacks")
+							local win = snacks.picker.util.pick_win()
+							if win == nil then
+								Snacks.notify.warn("No window selected")
+								return
+							else
+								vim.api.nvim_win_call(win, function()
+									vim.cmd("edit " .. item._path)
+								end)
+							end
+						end,
+
 						explorer_cut = function(picker)
 							clip_callback(picker, "cut", { "", "SnacksClipboardAction" })
 						end,
@@ -140,6 +154,7 @@ return {
 								["."] = "explorer_focus_and_callback",
 								["x"] = "explorer_cut",
 								["p"] = "explorer_paste",
+								["L"] = "explorer_pick_buffer_and_open",
 							},
 						},
 					},

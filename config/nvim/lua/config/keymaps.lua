@@ -68,3 +68,18 @@ end)
 
 ---------- Map mode escape ----------
 map({ "i", "x" }, "<A-;>", "<esc>", { desc = "Return to normal mode", remap = true })
+
+---------- Pick window ----------
+map({ "n" }, "<leader>wp", function()
+	local Snacks = require("snacks")
+	local win = Snacks.picker.util.pick_win()
+	if win == nil then
+		-- If no window was selected, use the current window
+		win = vim.api.nvim_get_current_win()
+	end
+	vim.api.nvim_set_current_win(win)
+end, { desc = "Pick a window" })
+
+map({ "n", "i", "v" }, "<S-A-q>", function()
+	Snacks.bufdelete()
+end, { desc = "Delete current buffer" })
